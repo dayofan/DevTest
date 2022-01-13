@@ -18,7 +18,8 @@ namespace DeveloperTest.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(jobService.GetJobs());
+            var jobs = jobService.GetJobs();
+            return base.Ok(jobs);
         }
 
         [HttpGet("{id}")]

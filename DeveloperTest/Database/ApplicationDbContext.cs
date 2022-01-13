@@ -7,6 +7,7 @@ namespace DeveloperTest.Database
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Job> Jobs { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -30,6 +31,14 @@ namespace DeveloperTest.Database
                     JobId = 1,
                     Engineer = "Test",
                     When = DateTime.Now
+                });
+
+            modelBuilder.Entity<Customer>()
+                .HasData(new Customer
+                {
+                    CustomerId = 1,
+                    Name = "Mr John Doe",
+                    Type = "Large"
                 });
         }
     }
